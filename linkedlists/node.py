@@ -4,13 +4,18 @@
 
 # class for linked list #
 
-def Node():
+############ Node Class ###################
+class Node:
     def __init__(self, data):
         self.next = None 
         self.data = data
 
     def get_data(self):
         return self.data
+    
+    def get_next(self):
+        next = self.next
+        return next.data
     
     def __str__(self):
         return self.get_data()
