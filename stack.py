@@ -124,7 +124,7 @@ def balance_Check(s):
         #add all 'opening brackets'. Continue to balance check when closing brackets are found
         if paren in opening:
             stack.append(paren)
-            print("paren i sfound in opening; stack: %s" % stack)
+            print("paren is found in opening; stack: %s" % stack)
         else:
             if len(stack) == 0:
                 print("The stack's length is 0, so this is a failed condition. ")
