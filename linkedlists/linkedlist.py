@@ -71,13 +71,14 @@ class LinkedList:
                 return search
             else:
                 search = search.next
-            
-        #else return node-not-found
-        # return None
-
         
     #method to add a Node after a given Node
     def insertAfter(self, currentNode, newNode):
+
+        #Base Case: Make sure data is valid, node exists in list
+        if currentNode == None:
+            print("Please provide a valid Node to insert after.")
+            return
 
         #grab current 'next' 
         nextNode = currentNode.next
@@ -92,7 +93,19 @@ class LinkedList:
     #method to remove Node, given the object as a parameter
     def remove(self, deleteNode):
 
-        #start at head. Also grab pointer to be linked
+        #Base Case 1: Make sure data is valid, node exists in list
+        if deleteNode == None:
+            print("Please provide a valid Node to delete. Node not found in list.")
+            return
+        
+        #Base Case 2: If deletion is the head Node
+        if deleteNode == self.head:
+            self.head = self.head.next
+            return
+
+
+        #Else: start at head. Also grab pointer to be linked
+            #  If deletion is tail, nextNode will still be pointing to None
         previous = self.head
         nextNode = deleteNode.next
 
@@ -103,14 +116,14 @@ class LinkedList:
             
             previous = previous.next
 
-
+    #Method to loop through list and print
     def print_list(self):
         #grab first element
         nodeIndex = self.head
 
         #print data while the tail isn't reached
         while(nodeIndex):
-            print(nodeIndex.data)
+            print(" %s" % (nodeIndex.data))
             nodeIndex = nodeIndex.next
 
 ############### Functions ################
@@ -161,8 +174,7 @@ if __name__ == "__main__":
     testNode = list.findNode('Node 2')
     print("Node Query Found: " + str(testNode.data))
     print("Next Node In List: " + str(testNode.get_next()))
-    # print("")
-    # print("_" * 40)
+
 
 
     
